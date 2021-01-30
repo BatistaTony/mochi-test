@@ -5,7 +5,11 @@ import { head } from 'ramda';
 
 describe('Testing a useGeoCode hook', () => {
   it('Test if a useGeoCode is loaded sucessfully simulating data', () => {
-    const handleChange = result => {};
+    var isChanged: any = null;
+
+    const handleChange = result => {
+      isChanged = TextTrackCueList;
+    };
 
     const handleSelectPrediction = (results: GeocoderResult[]) => {
       const result = head(results);
@@ -17,6 +21,7 @@ describe('Testing a useGeoCode hook', () => {
     const { result } = renderHook(() => useGeoCode({ placeId: placeId }, handleSelectPrediction));
 
     expect(result.current.valueOf()).toBe(true);
+    expect(isChanged).toBeTruthy();
   });
 
   it('Should return false when given some wrong parameter ', () => {

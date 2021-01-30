@@ -1,12 +1,14 @@
 import { useGetPlacePredictions } from '../index';
 import DEFAULT_CONFIG from './../../constants/config';
 import { AutocompletePrediction } from '@typescript';
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react-hooks';
 
 describe('Testing a getPlacePredictions  hook', () => {
   it('Should render correctly', () => {
+    var PredictionsFounded: any = null;
+
     const setPredictions = (data: AutocompletePrediction[]) => {
-      console.log(data);
+      PredictionsFounded = data;
     };
 
     const data = {
@@ -17,6 +19,7 @@ describe('Testing a getPlacePredictions  hook', () => {
     const { result } = renderHook(() => useGetPlacePredictions(data, setPredictions));
 
     expect(result.current.valueOf()).toBe(true);
+    expect(PredictionsFounded).toBeTruthy();
   });
 
   it('should load auto complete service when user write start write', () => {
