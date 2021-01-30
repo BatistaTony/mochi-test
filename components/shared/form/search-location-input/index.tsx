@@ -21,7 +21,7 @@ const SearchLocationInput: FC<SearchLocationInputProps> = ({
   predictionsContainerWidth = '100%',
   predictionsContainerPositionX = '0',
   placeholder = '',
-  noBorder = false,
+  noBorder = false, 
   ...otherProps
 }) => {
   const [query, setQuery] = useState(defaultValue);

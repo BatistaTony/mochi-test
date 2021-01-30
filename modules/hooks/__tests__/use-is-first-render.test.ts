@@ -5,14 +5,11 @@ describe('Test if it is a first render', () => {
   it('Is it a first render', () => {
     const { result } = renderHook(useIsFirstRender);
 
-   
-
     expect(result.current).toBe(true);
   });
 
   it('It is not a first render', () => {
     const { result, rerender } = renderHook(useIsFirstRender);
-
 
     rerender(true);
 

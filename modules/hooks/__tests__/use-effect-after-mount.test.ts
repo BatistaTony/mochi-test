@@ -19,7 +19,4 @@ describe('Testing a useEffectAfterMount hook', () => {
     expect(n).toBe(7);
   });
 
-  // it('Fail when not passing a dependecies', () => {});
-
-  // it('Fail when not passing the callback', () => {});
 });

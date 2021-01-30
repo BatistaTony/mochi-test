@@ -1,9 +1,7 @@
 import { useScript } from '../index';
 import { renderHook } from '@testing-library/react-hooks';
-import DEFAULT_CONFIG from '../../constants/config';
-import { render, screen } from '@testing-library/react';
-import React, { Component } from 'react';
-import { removeScript, loadScript } from './../../utils/helper-functions';
+import { render } from '@testing-library/react';
+import React from 'react';
 
 const GoogleMapTest = () => {
   return (
@@ -24,7 +22,7 @@ describe('Testing a useScript hook', () => {
     };
 
     const data = {
-      src: `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&libraries=places`,
+      src: `someValidScriptOfGoogleMap`,
       id: 'mapG',
       callback: () => setIsCorrectlyLoaded(true),
       async: false,
@@ -46,7 +44,7 @@ describe('Testing a useScript hook', () => {
     };
 
     const data = {
-      src: `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}&libraries=places`,
+      src: `someValidScriptOfGoogleMap`,
       id: '',
       callback: () => setIsCorrectlyLoaded(true),
       async: false,
@@ -57,6 +55,4 @@ describe('Testing a useScript hook', () => {
     expect(isCorrectlyLoaded).toBe(false);
     expect(result.current).toBeUndefined();
   });
-
-  it('Testing if a script is removed correctly', () => {});
 });

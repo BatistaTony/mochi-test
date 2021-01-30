@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 type noop = () => void;
 type OnClose = (event: MouseEvent) => void;
 
-const useClickOutsideListenerRef = (onClose: OnClose | noop) => {
+const useClickOutsideListenerRef = (onClose: OnClose) => {
   const ref = useRef(null);
 
   const escapeListener = useCallback(

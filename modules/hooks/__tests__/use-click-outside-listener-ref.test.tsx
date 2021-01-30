@@ -2,7 +2,7 @@ import { useClickOutsideListenerRef } from '../index';
 import { renderHook } from '@testing-library/react-hooks';
 import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent } from '@testing-library/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 describe('Testing a useClickOutsideListenerRef hook', () => {
   it('Testing hook return null as expected', () => {
@@ -12,24 +12,30 @@ describe('Testing a useClickOutsideListenerRef hook', () => {
   });
 
   it('Testing when user press Escape', () => {
-    render(<SimpleView />);
+    const { debug } = render(<SimpleView />);
 
-    const escapeEvent = screen.getByText(/simple test component/i);
+    const escapeEvent = screen.getByTestId('test');
 
-    const isEscaped = fireEvent.keyUp(escapeEvent, { key: 'Escape', code: 'Escape' });
+    fireEvent.keyUp(escapeEvent, { key: 'Escape', code: 'Escape' });
 
-    expect(isEscaped).toBe(true);
+    debug();
+
+    const isFired = screen.getByTestId('number');
+
+    expect(Number(isFired.textContent)).toBe(1);
   });
 });
 
 const SimpleView = () => {
+  const [n, setN] = useState(0);
+
   useClickOutsideListenerRef(() => {
-    return true;
+    setN(1);
   });
 
   return (
-    <div id="test">
-      <h1>Simple Test Component</h1>
+    <div data-testid={'test'}>
+      <h1 data-testid={'number'}>{n}</h1>
     </div>
   );
 };

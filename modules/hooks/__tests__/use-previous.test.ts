@@ -15,11 +15,7 @@ describe(' Testing a usePrevious Hook ', () => {
 
     const { result, rerender } = renderHook(() => usePrevious(values));
 
-    const nextValues = 5;
-
-    values.push(nextValues);
-
-    rerender(true);
+    rerender([...values, 5, 6]);
 
     expect(result.current).toBe(values);
   });
