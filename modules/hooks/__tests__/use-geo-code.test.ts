@@ -1,7 +1,6 @@
 import { useGeoCode } from './../index';
 import { renderHook } from '@testing-library/react-hooks';
 import { GeocoderResult } from '@typescript';
-import { getFormattedAddress } from '@utils/helper-functions';
 import { head } from 'ramda';
 
 describe('Testing a useGeoCode hook', () => {
@@ -27,8 +26,4 @@ describe('Testing a useGeoCode hook', () => {
 
     expect(result.current.valueOf()).toBe(false);
   });
-
-  it('Se if input is disabled', () => {});
-
-  it('handleChange called everytime user write something');
 });

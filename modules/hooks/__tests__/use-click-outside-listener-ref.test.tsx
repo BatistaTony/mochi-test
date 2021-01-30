@@ -1,6 +1,5 @@
 import { useClickOutsideListenerRef } from '../index';
 import { renderHook } from '@testing-library/react-hooks';
-import userEvent from '@testing-library/user-event';
 import { render, screen, fireEvent } from '@testing-library/react';
 import React, { useState } from 'react';
 

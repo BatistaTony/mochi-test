@@ -1,4 +1,4 @@
-import SearchLocationInput from './index';
+import SearchLocationInput from '../index';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import { useCallback } from 'react';
 import { getStreetFromPlaceObject } from '@utils/helper-functions';
