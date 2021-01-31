@@ -27,18 +27,6 @@ describe('Testing useGoogleSignIn hook ', () => {
     expect(result.current.loaded).toBe(false);
   });
 
-  it('test if that hook add a google map script to component', async () => {
-    const onFailure = error => {};
-
-    const onSuccess = data => {};
-
-    const { debug, container } = render(
-      <SimpleComponent onFailure={onFailure} onSuccess={onSuccess} />
-    );
-
-    debug();
-  });
-
   it('check if user sign with sucess', () => {
     var isSucess = false;
 

@@ -51,7 +51,7 @@ describe('Testing a useScript hook', () => {
     };
 
     const { result } = renderHook(() => useScript(data));
-
+ 
     expect(isCorrectlyLoaded).toBe(false);
     expect(result.current).toBeUndefined();
   });
